@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./styles.css";
+import { useState } from "react";
+import { USERS_DATA } from "./USERS_DATA";
+import UserDetailsPanel from "./UserDetailsPanel";
+import Select from "react-select";
 
-function App() {
+export default function App() {
+  const [selectedUserIndex, setSelectedUserIndex] = useState(null);
+
+  function isSelected() {}
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ul className="user-names-list">
+        {USERS_DATA.map((item, index) => (
+          <li
+            key={index}
+            className="user"
+            onClick={() => setSelectedUserIndex(index)}
+            onChange={<li style={{ backgroundColor: "red" }}></li>}
+          >
+            {item.user_name}
+          </li>
+        ))}
+      </ul>
+      <UserDetailsPanel user={USERS_DATA?.[selectedUserIndex] || null} />
     </div>
   );
 }
-
-export default App;
