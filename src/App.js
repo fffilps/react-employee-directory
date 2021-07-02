@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.css";
 import { useState } from "react";
-import { USERS_DATA } from "./USERS_DATA";
+import { USERS_DATA } from "./USERS_DATA.JS";
 import UserDetailsPanel from "./UserDetailsPanel";
 import Select from "react-select";
 
